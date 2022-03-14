@@ -1,3 +1,5 @@
+package lab;
+
 public class AdvancedWeek {
     // Initializing variables
     private int day_1_index = 1;

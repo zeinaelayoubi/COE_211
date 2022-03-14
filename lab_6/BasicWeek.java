@@ -1,3 +1,6 @@
+package lab;
+
+
 public class BasicWeek {
     // Initializing variables
     private String day_1 = "Monday";

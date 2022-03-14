@@ -1,9 +1,12 @@
+package lab;
+
 import java.util.Scanner;
 
 public class Calculator {
     private int num1;
     private int num2;
     private String operator;
+    private String output;
 
     // Constructor to initialize the calculator
     public Calculator() {
