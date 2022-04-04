@@ -1,0 +1,59 @@
+package lab;
+
+
+	import java.io.File;
+import java.io.FileWriter;  // Import the FileWriter class
+
+	import java.io.IOException;  // Import the IOException class to handle errors
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+	public class ExpensesTracker{
+	  public static void main(String[] args)throws IOException{
+		  String answer,answer2,total;
+	    try {
+	    	File file1=new File("expenses.txt");
+	        FileWriter fw1=new FileWriter(file1,true);
+	        PrintWriter output=new PrintWriter(fw1);
+	        Scanner scan= new Scanner(System.in);
+	    	do {
+	      // Create FileWriter & Scanner objects & y/n string
+	    	
+	    	System.out.println("input your name: ");
+	    	String name_of_user=scan.next();
+	    	System.out.println("what did you purchase? ");
+	    	String purchased_product=scan.next();
+	    	System.out.print("How much did you pay? (in USD) ");
+	    	double purchase_amount=scan.nextDouble();
+	    	output.println(name_of_user + " purchased " + purchased_product + " for "
+	    	+ purchase_amount+ " US Dollars." );
+	    	System.out.println();
+	    	System.out.print("Would you like to log another purchase? (y/n) ");
+            answer=scan.next();
+            System.out.println();
+	    	}while(answer.equalsIgnoreCase("y"));
+         System.out.println("Get off of ZoodMall!");
+	
+	    System.out.println(" Would you like to read a summary of your purchases?");
+	    answer2=scan.next();
+	    Scanner scanFromFile=new Scanner(new File("expenses.txt"));
+	    if(answer.equalsIgnoreCase("y")) {
+	    	
+	    	total=scanFromFile.next();
+	    	System.out.print(total);
+	    }
+	      // Start gathering information inside the loop you will start
+
+	      // Close ClassWriter & Scanner objects
+         output.close();
+         scan.close();
+         scanFromFile.close();
+	      // If you have already have a expenses.txt file, you need to delete it
+	      // before you compile your code again
+
+	    } catch (IOException e) {
+	      System.out.println("An error occurred.");
+	      e.printStackTrace();
+	    }
+	  }
+	}
